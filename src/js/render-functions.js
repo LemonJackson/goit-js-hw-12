@@ -12,7 +12,8 @@ let lightbox = new SimpleLightbox('.gallery-link', {
 });
 
 export function createMarkup(data) {
-    gallery.innerHTML = ``;
+    // gallery.innerHTML = ``;
+
     if (data.hits.length === 0) {
         return iziToast.error({
             message: "Sorry, there are no images matching your search query. Please try again!",
@@ -33,7 +34,7 @@ export function createMarkup(data) {
         </li>`
     ).join('');
 
-    gallery.insertAdjacentHTML('afterbegin', markup);
+    gallery.insertAdjacentHTML('beforeend', markup);
 
     lightbox.refresh()
 }
